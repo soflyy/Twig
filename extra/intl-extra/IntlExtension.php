@@ -23,6 +23,8 @@ use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
 
+use function Twig\Extension\Core\Functions\twig_date_converter;
+
 final class IntlExtension extends AbstractExtension
 {
     private const DATE_FORMATS = [
@@ -279,7 +281,7 @@ final class IntlExtension extends AbstractExtension
      */
     public function formatDateTime(Environment $env, $date, ?string $dateFormat = 'medium', ?string $timeFormat = 'medium', string $pattern = '', $timezone = null, string $calendar = 'gregorian', string $locale = null): string
     {
-        $date = \twig_date_converter($env, $date, $timezone);
+        $date = twig_date_converter($env, $date, $timezone);
         $formatter = $this->createDateFormatter($locale, $dateFormat, $timeFormat, $pattern, $date->getTimezone(), $calendar);
 
         if (false === $ret = $formatter->format($date)) {
