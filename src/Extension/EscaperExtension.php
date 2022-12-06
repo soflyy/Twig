@@ -143,7 +143,9 @@ use Twig\Markup;
 use Twig\Node\Expression\ConstantExpression;
 use Twig\Node\Node;
 
-/**
+    use function Twig\Extension\Core\Functions\twig_convert_encoding;
+
+    /**
  * Marks a variable as being safe.
  *
  * @param string $string A PHP variable
