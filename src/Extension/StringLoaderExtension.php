@@ -35,7 +35,7 @@ use Twig\TemplateWrapper;
  * @param string $template A template as a string or object implementing __toString()
  * @param string $name     An optional name of the template to be used in error messages
  */
-function twig_template_from_string(Environment $env, $template, string $name = null): TemplateWrapper
+function twig_template_from_string(Environment $env, $template, ?string $name = null): TemplateWrapper
 {
     return $env->createTemplate((string) $template, $name);
 }

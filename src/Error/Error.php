@@ -93,7 +93,7 @@ class Error extends \Exception
         return $this->name ? new Source($this->sourceCode, $this->name, $this->sourcePath) : null;
     }
 
-    public function setSourceContext(Source $source = null): void
+    public function setSourceContext(?Source $source = null): void
     {
         if (null === $source) {
             $this->sourceCode = $this->name = $this->sourcePath = null;
